@@ -49,8 +49,8 @@
 图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加
 
 
-![图片]( .\Pillow\test.jpg "图片")
-![图片]( https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548137746647&di=749bc0354f0e8bf93885dc81d9e19da6&imgtype=0&src=http%3A%2F%2Fs7.sinaimg.cn%2Fmw690%2F006wmg2Hzy76gSxvIay96%26690 "图片")
+![图片]( .\\Pillow\\test.jpg "图片")
+![图片]( https://corporate.dominos.co.uk/Themes/DominosTheme/Content/logo.png "图片")
 
 
 # 六、超链接
