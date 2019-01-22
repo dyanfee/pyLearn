@@ -49,7 +49,7 @@
 图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加
 
 
-![图片]( .\\Pillow\\test.jpg "图片")
+![图片]( Pillow/test.jpg "图片")
 ![图片]( https://corporate.dominos.co.uk/Themes/DominosTheme/Content/logo.png "图片")
 
 
