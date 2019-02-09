@@ -1,7 +1,7 @@
 from selenium import webdriver
 import time
 from selenium.webdriver.common.keys import Keys
-path = "C:/Users/4399/Downloads/Programs/chromedriver.exe"
+path = "chromedriver.exe"
 # path =
 driver = webdriver.Chrome(executable_path=path)
 

@@ -5,4 +5,12 @@ import numpy as np
 
 img = cv.imread("Opencv/girl.png")
 # matrix 矩阵
-res = cv.warpAffine(img,)
+H = np.float32([[1, 0, 100], [0, 1, 50]])
+rows, cols = img.shape[:2]
+res = cv.warpAffine(img, H, (rows, cols))
+
+cv.imshow("Image", img)
+cv.imshow("res", res)
+
+cv.waitKey(0)
+cv.destroyAllWindows()
