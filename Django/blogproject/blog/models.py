@@ -14,9 +14,15 @@ class Category(models.Model):
     https://docs.djangoproject.com/en/1.10/ref/models/fields/#field-types
     """
 
+    def __str__(self):
+        return self.name
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
