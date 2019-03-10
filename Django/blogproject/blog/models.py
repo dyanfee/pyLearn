@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -58,3 +58,6 @@ class Post(models.Model):
         SET()：此值设置，会调用外面的值，可以是一个函数。
         一般情况下使用CASCADE就可以了。
     '''
+
+    def get_absolute_url(self):
+        return reverse('blog:detail', kwargs={'pk': self.pk})
