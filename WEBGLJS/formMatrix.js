@@ -6,25 +6,29 @@ window.onload = function () {
 
     /*======= Defining and storing the geometry ======*/
 
-    // var vertices = [
-    //     -0.7, -0.1, 0,
-    //     -0.3, 0.6, 0,
-    //     -0.3, -0.3, 0,
-    //     0.2, 0.6, 0,
-    //     0.3, -0.3, 0,
-    //     0.7, 0.6, 0
-    // ]
     var vertices = [
-        -0.5, 0.5, 0.0,
-        -0.5, -0.5, 0.0,
-        0.5, -0.5, 0.0,
-        0.5, 0.5, 0.0
+        -0.7, -0.1, 0,
+        -0.3, 0.6, 0,
+        -0.3, -0.3, 0,
+        0.2, 0.6, 0,
+        0.3, -0.3, 0,
+        0.7, 0.6, 0
     ]
+    // var vertices = [
+    //     -0.5, 0.5, 0.0,
+    //     -0.5, -0.5, 0.0,
+    //     0.5, -0.5, 0.0,
+    //     0.5, 0.5, 0.0
+    // ]
 
-    var indices = [3, 2, 1, 3, 1, 0]
+    var indices = [0,1,2,1,3,4,3,4,5]
 
     var colors = [
         0, 0, 1,
+        0, 0, 1,
+        0, 0, 1,
+        // 1, 0, 0,
+        // 0, 1, 0,
         1, 0, 0,
         0, 1, 0,
         1, 0, 1,]
@@ -49,9 +53,10 @@ window.onload = function () {
     var vertCode =
         'attribute vec3 coordinates;' +
         'attribute vec3 color;' +
+        'uniform mat4 u_xformMatrix;' +
         'varying vec3 vColor;' +
         'void main(void) {' +
-        ' gl_Position = vec4(coordinates, 1.0);' +
+        ' gl_Position =u_xformMatrix * vec4(coordinates, 1.0);' +
         'vColor = color;' +
         '}';
 
@@ -95,6 +100,24 @@ window.onload = function () {
 
     // Use the combined shader program object
     gl.useProgram(shaderProgram);
+
+
+
+    var Sx = 1.0, Sy = 1.5, Sz = 1.0;
+    var xformMatrix = new Float32Array([
+        Sx, 0.0, 0.0, 0.0,
+        0.0, Sy, 0.0, 0.0,
+        0.0, 0.0, Sz, 0.0,
+        0.0, 0.0, 0.0, 1.0
+    ]);
+
+    var u_xformMatrix = gl.getUniformLocation(shaderProgram, 'u_xformMatrix');
+    gl.uniformMatrix4fv(u_xformMatrix, false, xformMatrix);
+
+
+
+
+
 
     // Bind vertex buffer object
     gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);

@@ -47,11 +47,12 @@ window.onload = function () {
 
     // Vertex shader source code
     var vertCode =
-        'attribute vec3 coordinates;' +
+        'attribute vec4 coordinates;' +
         'attribute vec3 color;' +
+        'uniform vec4 translation;' +
         'varying vec3 vColor;' +
         'void main(void) {' +
-        ' gl_Position = vec4(coordinates, 1.0);' +
+        ' gl_Position = coordinates + translation ;' +
         'vColor = color;' +
         '}';
 
@@ -108,6 +109,16 @@ window.onload = function () {
 
     // Enable the attribute
     gl.enableVertexAttribArray(coord);
+
+
+    var Tx = 0.5, Ty = 0.1, Tz = 0.0;
+    var translation = gl.getUniformLocation(shaderProgram, 'translation');
+    gl.uniform4f(translation, Tx, Ty, Tz, 0.0);
+
+
+
+
+
     gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
 
     var color = gl.getAttribLocation(shaderProgram, 'color');

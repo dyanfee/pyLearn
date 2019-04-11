@@ -6,7 +6,6 @@ import scipy
 import numpy 
 # from option_pricer_gui import *
 
-
 def arith_basket_option_multi(S, sigma, r, T, K, ro_matrix, option_type, path_num, method):
     # S = []
     print(S, sigma, r, T, K, ro_matrix, option_type, path_num, method)
