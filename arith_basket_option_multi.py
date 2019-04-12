@@ -28,14 +28,16 @@ def arith_basket_option_multi(S, sigma, r, T, K, ro_matrix, option_type, path_nu
         for j in range(len(S)):
             # numpy.random.multivariate_normal()
             Z = random.multivariate_normal([0]*len(S), ro_matrix, path_num).T
-            print(Z)
+            # print(Z)
             growthFactor = exp(
                 (r - 0.5 * sigma[j - 1] * sigma[j - 1]) * T + sigma[j - 1] * sqrt(T) * (Z[j - 1]))
             # a[j-1] = S[j-1]*growthFactor
             # S_sum += a[j-1]
             S_sum += S[j-1]*growthFactor
         arith_basket_mean = numpy.mean(S_sum)
-        print((1.0 / len(S)) * sum(numpy.log(S_sum)))
+        # print(S_sum)
+        # print(arith_basket_mean)
+        # print((1.0 / len(S)) * sum(numpy.log(S_sum)),numpy.log(S_sum))
         geo_basket_mean = exp((1.0 / len(S)) * sum(numpy.log(S_sum)))
 
         if (option_type == 'call'):
@@ -52,6 +54,7 @@ def arith_basket_option_multi(S, sigma, r, T, K, ro_matrix, option_type, path_nu
         pstd = np.std(arith_basket_payoff)
         confmc = (pmean - 1.96 * pstd / sqrt(path_num),
                   pmean + 1.96 * pstd / sqrt(path_num))
+        print(zmean, zconfvc)
         return pmean, confmc
     elif (method == 'control variate'):
         covxy = numpy.mean(arith_basket_payoff * geo_basket_payoff) - numpy.mean(arith_basket_payoff) * numpy.mean(
@@ -67,7 +70,6 @@ def arith_basket_option_multi(S, sigma, r, T, K, ro_matrix, option_type, path_nu
         zstd = numpy.std(z)
         zconfvc = (zmean - 1.96 * zstd / sqrt(path_num),
                    zmean + 1.96 * zstd / sqrt(path_num))
-        print(zmean, zconfvc)
         return zmean, zconfvc
 
 
