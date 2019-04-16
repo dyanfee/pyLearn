@@ -146,7 +146,7 @@ window.onload = function () {
 
      function rotateX(m, angle) {
         var c = Math.cos(angle);
-        var s = Math.sin(angle);KGJH
+        var s = Math.sin(angle);
         var mv1 = m[1], mv5 = m[5], mv9 = m[9];
             
         m[1] = m[1]*c-m[2]*s;
