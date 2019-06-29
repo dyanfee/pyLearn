@@ -1,7 +1,11 @@
 import pandas as pd
 
-data = pd.read_csv('./Matplotlib/data.csv')
-print(data)
+# data = pd.read_csv('./Matplotlib/data.csv')
+data = pd.read_csv('C:/Users/4399/Desktop/stockdata20140101.csv')
+print(data.head())
+# data.convert_objects(convert_numeric=True)
+pd.to_numeric(data['open'])
+data.info()
 # data = [{'a': 1, 'b': 2, 'c': 3, 'd': 4},
 #         {'a': 100, 'b': 200, 'c': 300, 'd': 400},
 #         {'a': 1000, 'b': 2000, 'c': 3000, 'd': 4000}]
@@ -18,9 +22,9 @@ print(data)
 #     # data.ix[i]['amount'] = log(data[i]['amount'] / data[i+1]['amount'])
 #     # return data
 
-data['res1'] = (data["low"] - data["pre"])/data['height']
-data.eval('res2 = (height - low) / pre', inplace=True)
-data.convert_objects(convert_numeric=True)
-pd.to_numeric
-print(data)
-data.info()
+# data['res1'] = (data["low"] - data["pre"])/data['height']
+# data.eval('res2 = (height - low) / pre', inplace=True)
+# data.convert_objects(convert_numeric=True)
+# pd.to_numeric
+# print(data)
+# data.info()
