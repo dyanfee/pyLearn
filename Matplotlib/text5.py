@@ -25,5 +25,8 @@ ax.plot(data['thi'], label='Third')
 plt.xlabel('Values')
 plt.title('Plot')
 ax.legend(loc='upper right')
+
 plt.savefig('./Matplotlib/plt.png')
+
+
 plt.show()
